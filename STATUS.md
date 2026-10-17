@@ -70,11 +70,11 @@
 - A publication scan found no home-directory paths, email addresses, private-key
   markers, common access-token formats, passwords, secrets, or local IP addresses.
   The public author identifier `mscharstrom` remains intentionally visible.
-- No HyprPM `commit_pins` entry exists yet: this repository has no commit, so no
-  real plugin commit hash is available to pair with the tested Hyprland commit.
+- HyprPM pins Hyprland 0.56.2 commit
+  `efb50993780079460b0cbed1363e2166a2de1d9f` to the tested initial plugin
+  commit `a19e08ab1df416312b4bf7a6dcce50c8808f19f6`.
 
 ## Exact next step
 
-Create the initial repository commit, then add a HyprPM compatibility pin mapping
-Hyprland commit `efb50993780079460b0cbed1363e2166a2de1d9f` to that real plugin
-commit in a follow-up commit before publishing.
+Add and verify the README demonstration asset, then create the signed-off
+`v0.6.4` release tag without publishing it.
