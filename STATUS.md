@@ -73,8 +73,10 @@
 - HyprPM pins Hyprland 0.56.2 commit
   `efb50993780079460b0cbed1363e2166a2de1d9f` to the tested initial plugin
   commit `a19e08ab1df416312b4bf7a6dcce50c8808f19f6`.
+- A README demonstration recording was deferred at the user's request and can
+  be added in a later documentation-only release.
 
 ## Exact next step
 
-Add and verify the README demonstration asset, then create the signed-off
-`v0.6.4` release tag without publishing it.
+Publish the prepared commits and local `v0.6.4` tag only when the user requests
+publication.
