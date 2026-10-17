@@ -75,8 +75,12 @@
   commit `a19e08ab1df416312b4bf7a6dcce50c8808f19f6`.
 - A README demonstration recording was deferred at the user's request and can
   be added in a later documentation-only release.
+- Published 2026-10-17 to `https://github.com/mscharstrom/hypredging`.
+  The `main` branch and annotated `v0.6.4` tag were pushed successfully.
+  Public HTTP checks returned 200 for both, and the published `hyprpm.toml`
+  and `LICENSE` hashes exactly matched the local release files.
 
 ## Exact next step
 
-Publish the prepared commits and local `v0.6.4` tag only when the user requests
-publication.
+Add a real demonstration recording to the README when a privacy-safe capture is
+available.
