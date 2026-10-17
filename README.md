@@ -9,6 +9,10 @@ workspace animation, and entry-edge hysteresis prevents accidental bounce.
 
 ## Demo
 
+
+https://github.com/user-attachments/assets/126c6067-9cf3-4c00-aeb0-a26873d2f7af
+
+
 [![Hypredging demo: dragging a window between workspaces](assets/hypredging-demo-preview.jpg)](assets/hypredging-demo.mp4)
 
 Click the preview to watch the eight-second demonstration.
