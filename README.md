@@ -10,7 +10,12 @@ workspace animation, and entry-edge hysteresis prevents accidental bounce.
 ## Demo
 
 
-https://github.com/user-attachments/assets/126c6067-9cf3-4c00-aeb0-a26873d2f7af
+
+
+https://github.com/user-attachments/assets/dddd3f40-aad4-4336-9d19-6a3b69e8db72
+
+
+
 Click the preview to watch the eight-second demonstration.
 
 ## Compatibility
