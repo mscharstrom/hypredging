@@ -1,0 +1,12 @@
+[repository]
+name = "hypredging"
+authors = ["mscharstrom"]
+
+[hypredging]
+description = "Taking your windows to the edge"
+authors = ["mscharstrom"]
+output = "build/hypredging.so"
+build = [
+    "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release",
+    "cmake --build build --config Release",
+]

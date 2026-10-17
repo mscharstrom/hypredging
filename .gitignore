@@ -1,0 +1,24 @@
+# CMake build trees and generated files
+/build/
+/build-*/
+/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Compiled plugin artifacts
+*.so
+*.o
+*.a
+
+# Editor and local environment files
+.cache/
+.clangd/
+.direnv/
+.envrc
+.idea/
+.vscode/
+*.swp
+*~
