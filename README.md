@@ -7,6 +7,12 @@ numbered workspace when you drag it to the left or right monitor edge. The
 window remains attached to the pointer, the destination uses Hyprland's native
 workspace animation, and entry-edge hysteresis prevents accidental bounce.
 
+## Demo
+
+[![Hypredging demo: dragging a window between workspaces](assets/hypredging-demo-preview.jpg)](assets/hypredging-demo.mp4)
+
+Click the preview to watch the eight-second demonstration.
+
 ## Compatibility
 
 Runtime-tested only with **Hyprland 0.56.2**, commit
@@ -27,8 +33,6 @@ HyprPM prepares matching Hyprland headers automatically. A manual build needs
 the matching `hyprland.pc` available to `pkg-config`.
 
 ## Install with HyprPM
-
-After this repository is published at the planned URL:
 
 ```sh
 hyprpm add https://github.com/mscharstrom/hypredging

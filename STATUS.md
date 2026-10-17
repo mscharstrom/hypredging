@@ -73,8 +73,9 @@
 - HyprPM pins Hyprland 0.56.2 commit
   `efb50993780079460b0cbed1363e2166a2de1d9f` to the tested initial plugin
   commit `a19e08ab1df416312b4bf7a6dcce50c8808f19f6`.
-- A README demonstration recording was deferred at the user's request and can
-  be added in a later documentation-only release.
+- Added the user's eight-second 2560×1440 H.264 demonstration recording and a
+  1280×720 clickable README preview. The recording has no audio and its container
+  metadata contains no personal information.
 - Published 2026-10-17 to `https://github.com/mscharstrom/hypredging`.
   The `main` branch and annotated `v0.6.4` tag were pushed successfully.
   Public HTTP checks returned 200 for both, and the published `hyprpm.toml`
@@ -82,5 +83,5 @@
 
 ## Exact next step
 
-Add a real demonstration recording to the README when a privacy-safe capture is
-available.
+Use the published demo and installation instructions to collect first-release
+feedback without claiming compatibility beyond the tested Hyprland commit.
