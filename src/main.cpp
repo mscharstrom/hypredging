@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 //
-// Workspace transition synchronization below is adapted from Hyprland 0.56.2's
+// Workspace transition synchronization below is adapted from Hyprland 0.57.0's
 // CMonitor::changeWorkspace. See THIRD_PARTY_NOTICES.md.
 
 #include <chrono>
@@ -9,12 +9,12 @@
 
 #include <hyprland/src/animation/WorkspaceAnimationController.hpp>
 #include <hyprland/src/desktop/state/GlobalWindowController.hpp>
-#include <hyprland/src/desktop/view/Window.hpp>
+#include <hyprland/src/desktop/view/window/Window.hpp>
 #include <hyprland/src/event/EventBus.hpp>
 #include <hyprland/src/config/values/types/IntValue.hpp>
 #include <hyprland/src/layout/LayoutManager.hpp>
-#include <hyprland/src/managers/EventManager.hpp>
 #include <hyprland/src/managers/eventLoop/EventLoopManager.hpp>
+#include <hyprland/src/ipc/s2/S2.hpp>
 #include <hyprland/src/output/Monitor.hpp>
 #include <hyprland/src/plugins/PluginAPI.hpp>
 #include <hyprland/src/pointer/PointerController.hpp>
@@ -68,22 +68,23 @@ namespace {
         const auto window = target ? target->window() : nullptr;
         const auto monitor = window ? window->m_monitor.lock() : nullptr;
         const auto current = monitor ? monitor->m_activeWorkspace : nullptr;
-        if (!window || !monitor || !current || current->m_id <= 0)
+        if (!window || !monitor || !current)
             return false;
 
-        const WORKSPACEID nextID = current->m_id + (edge == Edge::RIGHT ? 1 : -1);
-        if (nextID <= 0)
+        const auto currentID = current->numberedID();
+        if (!currentID || (edge == Edge::LEFT && *currentID == 1))
             return false;
 
-        auto next = State::workspaceState()->query().id(nextID).run();
+        const auto nextID = Workspace::SWorkspaceNumberedID{edge == Edge::RIGHT ? *currentID + 1U : *currentID - 1U};
+        auto       next   = State::workspaceState()->query().numbered(nextID).run();
         if (!next)
-            next = State::workspaceState()->create(nextID, monitor->m_id, std::to_string(nextID));
+            next = State::workspaceState()->createNumbered(nextID, monitor, std::to_string(nextID.value));
         if (!next)
             return false;
 
         Desktop::globalWindowController()->moveWindowToWorkspace(window, next);
 
-        // The normal 0.56.2 path releases held mouse buttons. Internal switching
+        // The normal 0.57.0 path releases held mouse buttons. Internal switching
         // keeps the active drag grab. Reproduce its render-state synchronization.
         monitor->changeWorkspace(next, true, true, true);
         const bool animateLeft = edge == Edge::RIGHT;
@@ -91,8 +92,10 @@ namespace {
         Animation::Workspace::startAnimation(current, Animation::Workspace::ANIMATION_TYPE_OUT, animateLeft, false, animationStyle);
         Animation::Workspace::startAnimation(next, Animation::Workspace::ANIMATION_TYPE_IN, animateLeft, false, animationStyle);
         g_layoutManager->recalculateMonitor(monitor, Layout::CLayoutManager::RECALCULATE_MONITOR_REASON_WORKSPACE_CHANGE);
-        g_pEventManager->postEvent(SHyprIPCEvent{"workspace", next->m_name});
-        g_pEventManager->postEvent(SHyprIPCEvent{"workspacev2", std::format("{},{}", next->m_id, next->m_name)});
+        next->ready();
+        IPC::Socket2::sock()->postEvent(IPC::Socket2::SEvent{"workspace", next->addressableName()});
+        IPC::Socket2::sock()->postEvent(
+            IPC::Socket2::SEvent{"workspacev2", std::format("{},{}", next->addressableName(), next->displayName())});
         Event::bus()->m_events.workspace.active.emit(next);
 
         const auto cursor = g_pInputManager->getMouseCoordsInternal();
@@ -170,7 +173,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
     if (!g_mouseMoveListener)
         throw std::runtime_error("hypredging: failed to register mouse listener");
 
-    return {"hypredging", "Move dragged windows across workspace edges", "mscharstrom", "0.6.4"};
+    return {"hypredging", "Move dragged windows across workspace edges", "mscharstrom", "0.7.0"};
 }
 
 APICALL EXPORT void PLUGIN_EXIT() {

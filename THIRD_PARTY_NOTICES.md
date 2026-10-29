@@ -3,7 +3,7 @@
 Hypredging integrates with Hyprland's internal plugin APIs. The workspace
 animation, monitor recalculation, and workspace-event publication sequence in
 `moveToAdjacentWorkspace` is adapted from `CMonitor::changeWorkspace` in
-Hyprland 0.56.2's `src/output/Monitor.cpp`.
+Hyprland 0.56.2 and 0.57.0's `src/output/Monitor.cpp`.
 
 Hyprland is licensed under the BSD 3-Clause License:
 
@@ -35,4 +35,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-Source: https://github.com/hyprwm/Hyprland/tree/v0.56.2
+Sources:
+
+- https://github.com/hyprwm/Hyprland/tree/v0.56.2
+- https://github.com/hyprwm/Hyprland/tree/v0.57.0

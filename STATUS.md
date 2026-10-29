@@ -1,6 +1,6 @@
 # Status
 
-## Release candidate
+## Published release
 
 - Plugin version: `0.6.4`.
 - Exact runtime-tested compositor: Hyprland 0.56.2, commit
@@ -10,6 +10,39 @@
 - Build toolchain tested: GCC 16.2.1, CMake, and pkg-config `hyprland` 0.56.2.
 - Current live result (2026-10-17): the user confirmed the 0.6.4 behavior is
   working as intended.
+
+## 0.7.0 release candidate
+
+- Installed compositor/development headers: Hyprland 0.57.0, commit
+  `0aa6745f705f2c4b0a5004eb019ef76e5bbdb426`.
+- Installed ABI:
+  `0aa6745f705f2c4b0a5004eb019ef76e5bbdb426_aq_0.15_hu_0.14_hg_0.5_hc_0.1_hlg_0.6`.
+- The 0.6.4 source failed to compile because 0.57.0 moved `Window.hpp`, removed
+  `EventManager.hpp`, and replaced integer workspace IDs with typed
+  numbered/special workspace IDs and new query/creation APIs.
+- The local port now uses the relocated window header, Socket2 IPC events, and
+  the typed workspace APIs. It also calls `ready()` after a newly created
+  workspace has been moved/focused, following 0.57.0's workspace lifecycle.
+- A fresh Release build against the installed 0.57.0 headers succeeds with GCC
+  16.2.1 and no compiler warnings. `git diff --check` also passes, and the
+  shared object contains no GNU-unique symbols.
+- Hyprland 0.57.0's `CMonitor::changeWorkspace` implementation was checked
+  against the plugin's synchronization sequence. The normal path still releases
+  held mouse buttons, while the internal path preserves the drag. IPC event
+  names and payloads were updated to match the 0.57.0 implementation.
+- With the user's permission, `/tmp/hypredging-build-057/hypredging.so` was
+  loaded into the running Hyprland 0.57.0 session on 2026-10-29. Hyprland
+  accepted it without an ABI rejection, and the user confirmed that edge
+  dragging works. That binary still reported version 0.6.4 because the version
+  bump had not yet been applied; its implementation matches the tested port.
+- The release candidate is now versioned 0.7.0 in CMake and the plugin metadata.
+  README compatibility and troubleshooting documentation, `CHANGELOG.md`, and
+  the Hyprland 0.57.0 provenance notice have been prepared locally.
+- A fresh 0.7.0 Release build succeeds. With the user's permission, the earlier
+  test binary was unloaded and `/tmp/hypredging-release-070/hypredging.so` was
+  loaded successfully. Hyprland reports version 0.7.0 without an ABI rejection;
+  the functional implementation is identical to the user-confirmed test build.
+- No HyprPM 0.57.0 pin, tag, release, commit, or push has been made.
 
 ## Confirmed runtime behavior
 
@@ -31,7 +64,7 @@
 
 - Target the exact tested Hyprland release; plugin ABI compatibility is not
   assumed across releases.
-- Use Hyprland 0.56.2's typed mouse EventBus and event-loop timer.
+- Use Hyprland's typed mouse EventBus and event-loop timer.
 - Preserve the active drag with the internal workspace-switch path, then perform
   the render-state synchronization, native animation, monitor recalculation,
   and IPC/EventBus publication skipped by that path.
@@ -84,5 +117,6 @@
 
 ## Exact next step
 
-Use the published demo and installation instructions to collect first-release
-feedback without claiming compatibility beyond the tested Hyprland commit.
+Create the local 0.7.0 implementation/documentation commit, add its hash as the
+Hyprland 0.57.0 HyprPM pin in a follow-up release commit, then present the final
+history for explicit permission before tagging or pushing.

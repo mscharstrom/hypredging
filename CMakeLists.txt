@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(hypredging LANGUAGES CXX)
+project(hypredging VERSION 0.7.0 LANGUAGES CXX)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(HYPRLAND REQUIRED IMPORTED_TARGET hyprland)
