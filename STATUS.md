@@ -48,9 +48,14 @@
 - A clean `git archive` export of the pinned implementation commit configured
   and built successfully in Release mode against Hyprland 0.57.0.
 - Added release, license, and star badges to improve the repository's at-a-glance
-  presentation. Planned GitHub topics are `hyprland`, `hyprland-plugin`,
+  presentation. Applied GitHub topics are `hyprland`, `hyprland-plugin`,
   `wayland`, `linux`, `window-manager`, and `workspace`.
-- No tag, release, or push has been made.
+- Published 2026-10-29 as the annotated `v0.7.0` tag and GitHub Release. The
+  release is neither a draft nor a prerelease. Public verification confirmed
+  that `main` and the tag resolve to the release commit and the published
+  `hyprpm.toml` exactly matches the local file.
+- Updated the GitHub description to "Drag windows across Hyprland workspaces at
+  screen edges" and applied the six focused discovery topics above.
 
 ## Confirmed runtime behavior
 
@@ -125,5 +130,5 @@
 
 ## Exact next step
 
-With the user's explicit permission, create the annotated `v0.7.0` tag, push
-the two release commits and tag, and publish release notes from `CHANGELOG.md`.
+Collect feedback from Hyprland 0.57.0 users without claiming compatibility
+beyond the exact Hyprland commits listed in the README matrix.
