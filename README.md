@@ -2,6 +2,10 @@
 
 **Taking your windows to the edge**
 
+[![Latest release](https://img.shields.io/github/v/release/mscharstrom/hypredging?display_name=tag&sort=semver)](https://github.com/mscharstrom/hypredging/releases/latest)
+[![License](https://img.shields.io/github/license/mscharstrom/hypredging)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/mscharstrom/hypredging?style=flat)](https://github.com/mscharstrom/hypredging/stargazers)
+
 Hypredging is a native Hyprland plugin that carries a window into the adjacent
 numbered workspace when you drag it to the left or right monitor edge. The
 window remains attached to the pointer, the destination uses Hyprland's native

@@ -42,7 +42,15 @@
   test binary was unloaded and `/tmp/hypredging-release-070/hypredging.so` was
   loaded successfully. Hyprland reports version 0.7.0 without an ABI rejection;
   the functional implementation is identical to the user-confirmed test build.
-- No HyprPM 0.57.0 pin, tag, release, commit, or push has been made.
+- The implementation and documentation were committed locally as
+  `e395e9069eda01da960274b30f6bba78906a9823`. `hyprpm.toml` now maps the exact
+  Hyprland 0.57.0 commit to that tested implementation commit.
+- A clean `git archive` export of the pinned implementation commit configured
+  and built successfully in Release mode against Hyprland 0.57.0.
+- Added release, license, and star badges to improve the repository's at-a-glance
+  presentation. Planned GitHub topics are `hyprland`, `hyprland-plugin`,
+  `wayland`, `linux`, `window-manager`, and `workspace`.
+- No tag, release, or push has been made.
 
 ## Confirmed runtime behavior
 
@@ -117,6 +125,5 @@
 
 ## Exact next step
 
-Create the local 0.7.0 implementation/documentation commit, add its hash as the
-Hyprland 0.57.0 HyprPM pin in a follow-up release commit, then present the final
-history for explicit permission before tagging or pushing.
+With the user's explicit permission, create the annotated `v0.7.0` tag, push
+the two release commits and tag, and publish release notes from `CHANGELOG.md`.
