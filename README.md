@@ -25,6 +25,7 @@ your exact Hyprland release:
 
 | Hyprland | Hypredging | Status |
 | --- | --- | --- |
+| 0.57.1 (`acc1aa0b`) | [v0.7.0](https://github.com/mscharstrom/hypredging/releases/tag/v0.7.0) | Supported and runtime-tested |
 | 0.57.0 (`0aa6745f`) | [v0.7.0](https://github.com/mscharstrom/hypredging/releases/tag/v0.7.0) | Supported and runtime-tested |
 | 0.56.2 (`efb50993`) | [v0.6.4](https://github.com/mscharstrom/hypredging/releases/tag/v0.6.4) | Supported legacy release |
 

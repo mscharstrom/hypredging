@@ -1,6 +1,6 @@
 # Status
 
-## Published release
+## Published 0.6.4 release
 
 - Plugin version: `0.6.4`.
 - Exact runtime-tested compositor: Hyprland 0.56.2, commit
@@ -11,7 +11,7 @@
 - Current live result (2026-10-17): the user confirmed the 0.6.4 behavior is
   working as intended.
 
-## 0.7.0 release candidate
+## Published 0.7.0 release
 
 - Installed compositor/development headers: Hyprland 0.57.0, commit
   `0aa6745f705f2c4b0a5004eb019ef76e5bbdb426`.
@@ -56,6 +56,21 @@
   `hyprpm.toml` exactly matches the local file.
 - Updated the GitHub description to "Drag windows across Hyprland workspaces at
   screen edges" and applied the six focused discovery topics above.
+
+## Hyprland 0.57.1 compatibility
+
+- Installed compositor/development headers: Hyprland 0.57.1, commit
+  `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9`.
+- Installed ABI:
+  `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9_aq_0.16_hu_0.14_hg_0.6_hc_0.1_hlg_0.6`.
+- On 2026-11-04, HyprPM rebuilt and loaded Hypredging 0.7.0 successfully, and
+  the user confirmed the plugin works in the running Hyprland 0.57.1 session.
+- The implementation is unchanged. The README matrix and HyprPM metadata now
+  map the exact 0.57.1 commit to the existing tested 0.7.0 implementation commit
+  `e395e9069eda01da960274b30f6bba78906a9823`.
+- A clean archive of that pinned implementation configured and built successfully
+  in Release mode against the installed 0.57.1 headers with GCC 16.2.1. The
+  resulting shared object contains no GNU-unique symbols.
 
 ## Confirmed runtime behavior
 
@@ -130,5 +145,5 @@
 
 ## Exact next step
 
-Collect feedback from Hyprland 0.57.0 users without claiming compatibility
+Collect feedback from Hyprland 0.57.1 users without claiming compatibility
 beyond the exact Hyprland commits listed in the README matrix.

@@ -4,6 +4,14 @@ All notable user-facing changes are documented here. Hypredging follows
 semantic versioning, while compatibility remains tied to exact Hyprland
 releases because Hyprland's plugin ABI is not stable across releases.
 
+## Unreleased
+
+### Compatibility
+
+- Added a HyprPM pin and runtime-tested compatibility entry for Hyprland 0.57.1
+  at commit `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9`. It uses the unchanged
+  Hypredging 0.7.0 implementation.
+
 ## 0.7.0 - 2026-10-29
 
 ### Added
