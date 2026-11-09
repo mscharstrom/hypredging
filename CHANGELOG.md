@@ -8,6 +8,9 @@ releases because Hyprland's plugin ABI is not stable across releases.
 
 ### Compatibility
 
+- Added a HyprPM pin and runtime-tested compatibility entry for Hyprland 0.57.2
+  at commit `11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947`. It uses the unchanged
+  Hypredging 0.7.0 implementation.
 - Added a HyprPM pin and runtime-tested compatibility entry for Hyprland 0.57.1
   at commit `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9`. It uses the unchanged
   Hypredging 0.7.0 implementation.

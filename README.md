@@ -25,13 +25,24 @@ your exact Hyprland release:
 
 | Hyprland | Hypredging | Status |
 | --- | --- | --- |
-| 0.57.1 (`acc1aa0b`) | [v0.7.0](https://github.com/mscharstrom/hypredging/releases/tag/v0.7.0) | Supported and runtime-tested |
-| 0.57.0 (`0aa6745f`) | [v0.7.0](https://github.com/mscharstrom/hypredging/releases/tag/v0.7.0) | Supported and runtime-tested |
-| 0.56.2 (`efb50993`) | [v0.6.4](https://github.com/mscharstrom/hypredging/releases/tag/v0.6.4) | Supported legacy release |
+| 0.57.0–0.57.2 | [v0.7.0](https://github.com/mscharstrom/hypredging/releases/tag/v0.7.0) | Supported and runtime-tested |
+| 0.56.2 | [v0.6.4](https://github.com/mscharstrom/hypredging/releases/tag/v0.6.4) | Supported legacy release |
 
 Only the listed Hyprland commits are claimed as compatible. Even a patch
 release can change the plugin ABI. HyprPM uses the repository's commit pins to
 select the matching source revision automatically.
+
+<details>
+<summary>Exact tested Hyprland commits</summary>
+
+| Hyprland | Commit | Hypredging |
+| --- | --- | --- |
+| 0.57.2 | `11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947` | v0.7.0 |
+| 0.57.1 | `acc1aa0bfd4bd575dcb0f76c35ccf12b660a1ab9` | v0.7.0 |
+| 0.57.0 | `0aa6745f705f2c4b0a5004eb019ef76e5bbdb426` | v0.7.0 |
+| 0.56.2 | `efb50993780079460b0cbed1363e2166a2de1d9f` | v0.6.4 |
+
+</details>
 
 To check your installed version and ABI:
 

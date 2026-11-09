@@ -72,6 +72,25 @@
   in Release mode against the installed 0.57.1 headers with GCC 16.2.1. The
   resulting shared object contains no GNU-unique symbols.
 
+## Hyprland 0.57.2 compatibility
+
+- Installed compositor/development headers: Hyprland 0.57.2, commit
+  `11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947`.
+- Installed ABI:
+  `11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947_aq_0.16_hu_0.14_hg_0.6_hc_0.1_hlg_0.6`.
+- On 2026-11-09, HyprPM rebuilt and loaded Hypredging 0.7.0 successfully. After
+  rebooting, the user confirmed the plugin works in the running Hyprland 0.57.2
+  session.
+- The implementation is unchanged. The README matrix and HyprPM metadata now
+  map the exact 0.57.2 commit to the existing tested 0.7.0 implementation commit
+  `e395e9069eda01da960274b30f6bba78906a9823`.
+- A clean archive of that pinned implementation configured and built successfully
+  in Release mode against the installed 0.57.2 headers with GCC 16.2.1. The
+  resulting shared object contains no GNU-unique symbols.
+- The README presents compatible patch releases as the compact range
+  `0.57.0–0.57.2`; exact tested commits remain available in a collapsible table
+  and as individual HyprPM pins.
+
 ## Confirmed runtime behavior
 
 - `Super + left mouse` move-drags are detected for floating and tiled windows,
@@ -145,5 +164,5 @@
 
 ## Exact next step
 
-Collect feedback from Hyprland 0.57.1 users without claiming compatibility
+Collect feedback without claiming compatibility
 beyond the exact Hyprland commits listed in the README matrix.
